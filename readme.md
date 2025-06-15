@@ -54,7 +54,7 @@ A modern, full-featured CRUD application for managing your personal book collect
 - [sqlx](https://jmoiron.github.io/sqlx/) (PostgreSQL connection)
 - [Swagger (swaggo)](https://github.com/swaggo/gin-swagger) (API docs)
 - [godotenv](https://github.com/joho/godotenv) (.env management)
-- [PostgreSQL](https://www.postgresql.org/) (database)
+- [PostgreSQL](https://www.postgresql.org/) (database ,Railway)
 - Unit tests (Go test framework)
 
 ---
