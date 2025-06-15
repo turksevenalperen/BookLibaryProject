@@ -77,12 +77,12 @@ BookLibraryProject/
 ├── frontend/
 │   ├── components/
 │   ├── context/
-│   ├── pages/ or app/
+│   ├── app/
 │   ├── utils/
 │   ├── public/
 │   ├── styles/
-│   └── package.json
-│
+│   └── package.json 
+│   ├── lib/
 └── README.md
 └── setup.bat
 └── setup.sh
