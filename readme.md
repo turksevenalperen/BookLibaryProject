@@ -112,7 +112,7 @@ cp .env.example .env   # or edit .env directly
 go mod tidy
 go run main.go
 ```
-- API runs at `http://localhost:8080`
+- API runs at `http://localhost:8080/books`
 - Swagger docs: [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
 -[Ekran görüntüsü 2025-06-15 092842](https://github.com/user-attachments/assets/fb8d6970-c2c2-44fd-9e3d-5f394bf29b84)
 
@@ -126,7 +126,7 @@ npm install
 npm run dev
 ```
 - App runs at `http://localhost:3000`
-- API URL is set as `http://localhost:8080` in `.env.local` or directly in code.
+- API URL is set as `http://localhost:8080/books` in `.env.local` or directly in code.
 
 ---
 
@@ -223,7 +223,8 @@ POST /process-url
 ---
 
 ## Screenshots
--NO BOOK AND BACKHEND VIEW
+-VIEW OF THE PAGE AND BACKEND VİEW WHEN THERE IS NO BOOK 
+
 ![Ekran görüntüsü 2025-06-15 093834](https://github.com/user-attachments/assets/5d1c8a06-9ad2-4d81-9338-0862ba8cafd6)
 ![Ekran görüntüsü 2025-06-15 093923](https://github.com/user-attachments/assets/02dd23cc-d562-4e01-8255-2d2a902d3cfa)
 
@@ -296,19 +297,4 @@ After
 
 
 ---
-
-## Notes
-
-- The frontend uses [shadcn/ui](https://ui.shadcn.com/) components:  
-  `Alert`, `Badge`, `Button`, `Card`, `Input`, `Label`, `Select`, `Skeleton`, `Textarea`
-- All error and success messages are visually displayed to the user.
-- Both frontend and backend are easy to test and develop.
-- The project can be easily dockerized and deployed to the cloud.
-
----
-
-## License
-
-Pull requests and contributions are welcome!  
-Open source under the MIT License.
 
