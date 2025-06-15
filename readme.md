@@ -223,12 +223,12 @@ POST /process-url
 ---
 
 ## Screenshots
--no book and backhand view
+-NO BOOK AND BACKHEND VIEW
 ![Ekran görüntüsü 2025-06-15 093834](https://github.com/user-attachments/assets/5d1c8a06-9ad2-4d81-9338-0862ba8cafd6)
 ![Ekran görüntüsü 2025-06-15 093923](https://github.com/user-attachments/assets/02dd23cc-d562-4e01-8255-2d2a902d3cfa)
 
 
--Add New Book
+-ADD NEW BOOK
 ![Ekran görüntüsü 2025-06-15 094133](https://github.com/user-attachments/assets/c10bb3c7-27fa-41ce-b90f-0143a5e0d05d)
 ![Ekran görüntüsü 2025-06-15 094152](https://github.com/user-attachments/assets/0236b17d-dcb9-40d3-931d-4690b3830291)
 ![Ekran görüntüsü 2025-06-15 094255](https://github.com/user-attachments/assets/30f11909-e9bc-4d0b-8c36-a5b138fb1f4b)
@@ -236,11 +236,11 @@ POST /process-url
 ![Ekran görüntüsü 2025-06-15 094506](https://github.com/user-attachments/assets/51c1f576-e3d5-428c-a0c0-141eeb45756a)
 ![Ekran görüntüsü 2025-06-15 094541](https://github.com/user-attachments/assets/91a95f73-74fc-4e9c-9a3b-23df4768b1f0)
 
--Book/[id]/page.tsx dynamically goes to the details of the book
+-BOOK/[ID]PAGE.TSX DYNAMICALLY GOES TO THE DETAİLS OF THE BOOK
 
 ![Ekran görüntüsü 2025-06-15 094723](https://github.com/user-attachments/assets/2ef46d2d-1b40-4c90-8dc2-e48fdc52fd5b)
 
--Edit Book
+-EDIT BOOK
 
 Before
 
@@ -250,12 +250,12 @@ Before
 
 After
 
--delete the detail part 
+DELETE THE DETAİL PART
 
 ![Ekran görüntüsü 2025-06-15 095144](https://github.com/user-attachments/assets/d8f0a4c3-a01a-4054-8f52-bef8cefe09bf)
 ![Ekran görüntüsü 2025-06-15 095227](https://github.com/user-attachments/assets/0e4293de-24b4-4776-ada2-33fa163d20c9)
 
--Delete Book
+DELETE BOOK
 
 Before
 
@@ -271,7 +271,7 @@ After
 
 
 
--Test results
+-TEST RESULTS
 
 ![Ekran görüntüsü 2025-06-15 101923](https://github.com/user-attachments/assets/b6013b08-14e1-4418-b4b3-25342154204a)
 
