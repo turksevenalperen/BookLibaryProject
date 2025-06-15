@@ -38,7 +38,6 @@ A modern, full-featured CRUD application for managing your personal book collect
 ## Technologies
 
 ### Frontend
-
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [shadcn/ui](https://ui.shadcn.com/)  
@@ -50,7 +49,6 @@ A modern, full-featured CRUD application for managing your personal book collect
 - Fetch API
 
 ### Backend
-
 - [Go (Golang)](https://go.dev/)
 - [Gin](https://gin-gonic.com/) (REST API)
 - [sqlx](https://jmoiron.github.io/sqlx/) (PostgreSQL connection)
@@ -114,10 +112,11 @@ cp .env.example .env   # or edit .env directly
 go mod tidy
 go run main.go
 ```
-
 - API runs at `http://localhost:8080`
 - Swagger docs: [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
 - ![image](https://github.com/user-attachments/assets/70ea31f1-969f-475c-9574-61b3f1b206fb)
+
+
 
 ### 3. Frontend (Next.js) Setup
 
@@ -126,7 +125,6 @@ cd frontend
 npm install
 npm run dev
 ```
-
 - App runs at `http://localhost:3000`
 - API URL is set as `http://localhost:8080` in `.env.local` or directly in code.
 
@@ -140,7 +138,6 @@ npm run dev
 cd backend
 go test ./...
 ```
-
 - Includes unit tests for CRUD endpoints and URL service.
 - Tests use the database specified in `.env`.
 
@@ -150,13 +147,13 @@ go test ./...
 
 ### Book CRUD
 
-| Method | URL           | Description       |
-| ------ | ------------- | ----------------- |
-| GET    | `/books`      | Get all books     |
-| POST   | `/books`      | Add a new book    |
-| GET    | `/books/{id}` | Get book by ID    |
-| PUT    | `/books/{id}` | Update book by ID |
-| DELETE | `/books/{id}` | Delete book by ID |
+| Method | URL            | Description           |
+|--------|----------------|----------------------|
+| GET    | `/books`       | Get all books        |
+| POST   | `/books`       | Add a new book       |
+| GET    | `/books/{id}`  | Get book by ID       |
+| PUT    | `/books/{id}`  | Update book by ID    |
+| DELETE | `/books/{id}`  | Delete book by ID    |
 
 #### Example: Add Book
 
@@ -181,15 +178,16 @@ POST /books
   "detail": "A masterpiece of French literature."
 }
 ```
-
 ![image](https://github.com/user-attachments/assets/0c58033b-4deb-41fd-93aa-6f790845e004)
 ![image](https://github.com/user-attachments/assets/3054410b-b966-474b-99cb-ca7c4537ee9b)
 
+
+
 ### URL Cleanup & Redirection Service
 
-| Method | URL            | Description             |
-| ------ | -------------- | ----------------------- |
-| POST   | `/process-url` | URL cleanup/redirection |
+| Method | URL            | Description                   |
+|--------|----------------|------------------------------|
+| POST   | `/process-url` | URL cleanup/redirection      |
 
 #### Example Request
 
@@ -210,9 +208,10 @@ POST /process-url
 ```
 
 ---
-
 ![image](https://github.com/user-attachments/assets/322cc2e3-3f98-42e4-a1ed-aa542318021b)
 ![image](https://github.com/user-attachments/assets/2e65dba2-7420-4695-979b-d548d61fd7d6)
+
+
 
 ## Swagger
 
@@ -222,7 +221,6 @@ POST /process-url
 ---
 
 ## Screenshots
-
 -no book and backhand view
 ![image](https://github.com/user-attachments/assets/da3e87fa-6c41-4de1-af7f-bc149c4ea21f)
 ![image](https://github.com/user-attachments/assets/dfb6957c-2298-4047-9cb8-4a143f9aac6a)
@@ -246,9 +244,10 @@ Before
 ![image](https://github.com/user-attachments/assets/7dbe6a38-adc3-4e2c-a7f5-b3f998b9668e)
 ![image](https://github.com/user-attachments/assets/4ce92bac-3b0c-4932-9530-62197b583fe2)
 
+
 After
 
--delete the detail part
+-delete the detail part 
 
 ![image](https://github.com/user-attachments/assets/fffff86f-aa85-454e-b15f-776519434bb5)
 ![image](https://github.com/user-attachments/assets/e3ebb718-fcdf-43f4-85b8-00c56d53f498)
@@ -264,11 +263,34 @@ After
 
 ![image](https://github.com/user-attachments/assets/b09ad9c7-08ef-4f44-aa1c-143ed4455e3b)
 
+
 ![image](https://github.com/user-attachments/assets/13f1e946-e749-43e7-be37-8722a0c0d41f)
+
+
 
 -Test results
 
 ![image](https://github.com/user-attachments/assets/c166a901-2298-4972-af2b-28de5e3554d3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
@@ -286,3 +308,4 @@ After
 
 Pull requests and contributions are welcome!  
 Open source under the MIT License.
+
