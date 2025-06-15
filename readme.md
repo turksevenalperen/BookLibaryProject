@@ -118,7 +118,11 @@ go run main.go
 ```
 - API runs at `http://localhost:8080/books`
 - Swagger docs: [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
--[Ekran görüntüsü 2025-06-15 092842](https://github.com/user-attachments/assets/fb8d6970-c2c2-44fd-9e3d-5f394bf29b84)
+![Ekran görüntüsü 2025-06-15 092842](https://github.com/user-attachments/assets/bcc5afad-e851-4109-9e1f-b474a6941f36)
+
+
+  
+
 
 
 
