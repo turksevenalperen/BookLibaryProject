@@ -114,7 +114,7 @@ go run main.go
 ```
 - API runs at `http://localhost:8080`
 - Swagger docs: [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
-- ![image](https://github.com/user-attachments/assets/70ea31f1-969f-475c-9574-61b3f1b206fb)
+-[Ekran görüntüsü 2025-06-15 092842](https://github.com/user-attachments/assets/fb8d6970-c2c2-44fd-9e3d-5f394bf29b84)
 
 
 
@@ -178,8 +178,10 @@ POST /books
   "detail": "A masterpiece of French literature."
 }
 ```
-![image](https://github.com/user-attachments/assets/0c58033b-4deb-41fd-93aa-6f790845e004)
-![image](https://github.com/user-attachments/assets/3054410b-b966-474b-99cb-ca7c4537ee9b)
+![Ekran görüntüsü 2025-06-15 093215](https://github.com/user-attachments/assets/bde1d34a-5185-4939-8210-ccb415e6f7f0)
+![Ekran görüntüsü 2025-06-15 093256](https://github.com/user-attachments/assets/9bec8a4a-07b2-4844-bba6-2efc11bf469a)
+
+
 
 
 
@@ -208,8 +210,8 @@ POST /process-url
 ```
 
 ---
-![image](https://github.com/user-attachments/assets/322cc2e3-3f98-42e4-a1ed-aa542318021b)
-![image](https://github.com/user-attachments/assets/2e65dba2-7420-4695-979b-d548d61fd7d6)
+![Ekran görüntüsü 2025-06-15 093550](https://github.com/user-attachments/assets/3de8687f-67bd-48de-8b8c-baa87c6196a4)
+![Ekran görüntüsü 2025-06-15 093626](https://github.com/user-attachments/assets/7cc4aabf-1695-445e-9bb2-7c873aa1d5da)
 
 
 
@@ -222,55 +224,56 @@ POST /process-url
 
 ## Screenshots
 -no book and backhand view
-![image](https://github.com/user-attachments/assets/da3e87fa-6c41-4de1-af7f-bc149c4ea21f)
-![image](https://github.com/user-attachments/assets/dfb6957c-2298-4047-9cb8-4a143f9aac6a)
+![Ekran görüntüsü 2025-06-15 093834](https://github.com/user-attachments/assets/5d1c8a06-9ad2-4d81-9338-0862ba8cafd6)
+![Ekran görüntüsü 2025-06-15 093923](https://github.com/user-attachments/assets/02dd23cc-d562-4e01-8255-2d2a902d3cfa)
+
 
 -Add New Book
-![image](https://github.com/user-attachments/assets/a7b4607f-9808-4f8f-8bbd-f2d376295a51)
-![image](https://github.com/user-attachments/assets/61bf1701-a073-42c9-8318-1325740993fe)
-![image](https://github.com/user-attachments/assets/e1909c92-77c9-4427-b653-f010731fb29c)
-![image](https://github.com/user-attachments/assets/560b9413-c2f8-442b-8ed7-b01533344b5a)
-![image](https://github.com/user-attachments/assets/eab41f57-1399-4719-87bb-552550bdc72e)
-![image](https://github.com/user-attachments/assets/b5d9ef88-2085-4a8a-85a6-05dd147d9f77)
+![Ekran görüntüsü 2025-06-15 094133](https://github.com/user-attachments/assets/c10bb3c7-27fa-41ce-b90f-0143a5e0d05d)
+![Ekran görüntüsü 2025-06-15 094152](https://github.com/user-attachments/assets/0236b17d-dcb9-40d3-931d-4690b3830291)
+![Ekran görüntüsü 2025-06-15 094255](https://github.com/user-attachments/assets/30f11909-e9bc-4d0b-8c36-a5b138fb1f4b)
+![Ekran görüntüsü 2025-06-15 094440](https://github.com/user-attachments/assets/bba62304-77ec-4d72-885f-0fd9f20bbdfb)
+![Ekran görüntüsü 2025-06-15 094506](https://github.com/user-attachments/assets/51c1f576-e3d5-428c-a0c0-141eeb45756a)
+![Ekran görüntüsü 2025-06-15 094541](https://github.com/user-attachments/assets/91a95f73-74fc-4e9c-9a3b-23df4768b1f0)
 
 -Book/[id]/page.tsx dynamically goes to the details of the book
 
-![image](https://github.com/user-attachments/assets/b43c9704-f8d1-426b-bd89-e698bec9b3a7)
+![Ekran görüntüsü 2025-06-15 094723](https://github.com/user-attachments/assets/2ef46d2d-1b40-4c90-8dc2-e48fdc52fd5b)
 
 -Edit Book
 
 Before
 
-![image](https://github.com/user-attachments/assets/7dbe6a38-adc3-4e2c-a7f5-b3f998b9668e)
-![image](https://github.com/user-attachments/assets/4ce92bac-3b0c-4932-9530-62197b583fe2)
+![Ekran görüntüsü 2025-06-15 094944](https://github.com/user-attachments/assets/aa25e462-ba40-44f9-94f2-8b1946c00704)
+![Ekran görüntüsü 2025-06-15 095032](https://github.com/user-attachments/assets/bb0307f9-d4f9-4a6e-bb99-5ba990a865cf)
 
 
 After
 
 -delete the detail part 
 
-![image](https://github.com/user-attachments/assets/fffff86f-aa85-454e-b15f-776519434bb5)
-![image](https://github.com/user-attachments/assets/e3ebb718-fcdf-43f4-85b8-00c56d53f498)
+![Ekran görüntüsü 2025-06-15 095144](https://github.com/user-attachments/assets/d8f0a4c3-a01a-4054-8f52-bef8cefe09bf)
+![Ekran görüntüsü 2025-06-15 095227](https://github.com/user-attachments/assets/0e4293de-24b4-4776-ada2-33fa163d20c9)
 
 -Delete Book
 
 Before
 
-![image](https://github.com/user-attachments/assets/f650089d-62ba-40ee-8875-00b09594d4be)
-![image](https://github.com/user-attachments/assets/21081e3f-2f1f-47c1-b393-bb97a011426d)
+![Ekran görüntüsü 2025-06-15 095314](https://github.com/user-attachments/assets/5c8d2da7-a5ba-4aa5-9336-732d2c3c9bfd)
+![Ekran görüntüsü 2025-06-15 095334](https://github.com/user-attachments/assets/d48437db-4438-44e1-a488-17c980e4af88)
 
 After
 
-![image](https://github.com/user-attachments/assets/b09ad9c7-08ef-4f44-aa1c-143ed4455e3b)
+![Ekran görüntüsü 2025-06-15 095415](https://github.com/user-attachments/assets/42407146-a6cb-402f-8b12-e73f9a57bd53)
 
 
-![image](https://github.com/user-attachments/assets/13f1e946-e749-43e7-be37-8722a0c0d41f)
+![Ekran görüntüsü 2025-06-15 101818](https://github.com/user-attachments/assets/15df59af-6229-4060-b972-4a55f825077d)
 
 
 
 -Test results
 
-![image](https://github.com/user-attachments/assets/c166a901-2298-4972-af2b-28de5e3554d3)
+![Ekran görüntüsü 2025-06-15 101923](https://github.com/user-attachments/assets/b6013b08-14e1-4418-b4b3-25342154204a)
 
 
 
