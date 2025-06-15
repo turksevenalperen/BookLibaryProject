@@ -84,6 +84,10 @@ BookLibraryProject/
 │   └── package.json
 │
 └── README.md
+└── setup.bat
+└── setup.sh
+
+
 ```
 
 ---
