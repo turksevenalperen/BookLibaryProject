@@ -1,21 +1,21 @@
 @echo off
 
-echo Backend bagimliliklari yukleniyor...
+echo Installing backend dependencies...
 cd backendFile
 go mod tidy
 
-echo Frontend bagimliliklari yukleniyor...
+echo Installing frontend dependencies...
 cd ..\frontend
 npm install
 
-echo .env dosyasi olusturuluyor...
+echo Creating .env file...
 cd ..\backendFile
 if not exist .env (
   copy .env.example .env
-  echo .env dosyasi olusturuldu.
+  echo .env file created.
 ) else (
-  echo .env zaten mevcut, atlaniyor.
+  echo .env already exists, skipping.
 )
 
-echo Kurulum tamamlandi!
+echo Setup complete!
 pause

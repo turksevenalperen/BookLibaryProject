@@ -1,142 +1,207 @@
 # Book Library Project
 
-## Proje Hakkında
-
-Bu proje, küçük bir kitap kütüphanesini yönetmek için geliştirilmiş tam kapsamlı bir CRUD uygulamasıdır.  
-Frontend Next.js (React & TypeScript) ile, backend ise Golang ve PostgreSQL ile yazılmıştır.
+A modern, full-featured CRUD application for managing your personal book collection. The project consists of a Next.js & TypeScript frontend, a RESTful backend written in Go, and a PostgreSQL database. It also includes a special URL cleanup and redirection service.
 
 ---
 
-## İçindekiler
+## Table of Contents
 
-- [Özellikler](#özellikler)
-- [Kurulum](#kurulum)
-- [Kullanım](#kullanım)
-- [API Endpointleri](#api-endpointleri)
-- [URL Cleanup Servisi](#url-cleanup-servisi)
-- [Testler](#testler)
-- [Ekran Görüntüleri](#ekran-görüntüleri)
-- [Proje Yapısı](#proje-yapısı)
-
----
-
-## Özellikler
-
-- Kitapları listeleme, ekleme, düzenleme, silme
-- Kitap detaylarını görüntüleme (dinamik routing)
-- Modal formlar ile kullanıcı dostu arayüz
-- Context API ile global state yönetimi
-- Form validasyonu ve hata mesajları
-- Swagger/OpenAPI ile API dokümantasyonu
-- URL cleanup & redirection servisi (backend)
-- Unit testler (backend)
-- Otomatik kurulum scriptleri (Windows & Linux)
-- Tailwind CSS ile modern ve responsive arayüz
+- [Features](#features)
+- [Technologies](#technologies)
+- [Project-Structure](#project-structure)
+- [Installation](#installation)
+- [Tests](#tests)
+- [API-Endpoints](#api-endpoints)
+- [Swagger](#swagger)
+- [Screenshots](#screenshots)
+- [Notes](#notes)
+- [License](#license)
 
 ---
 
-## Kurulum
+## Features
 
-### 1. Depoyu Klonla
+- Add, edit, delete, and view book details (CRUD)
+- Modern, user-friendly interface (Next.js + shadcn/ui)
+- Modal forms, client-side validation, search & filter
+- Grid and list view, badge, alert, skeleton loading animations
+- Global state management with Context API
+- Error and success notifications (sonner)
+- Interactive API documentation with Swagger/OpenAPI
+- Advanced logging and error handling
+- URL cleanup & redirection service (POST /process-url)
+- Persistent data storage with PostgreSQL
+- Comprehensive backend and service tests
 
-```bash
-git clone <repo-url>
-cd BookLibraryProject
+---
+
+## Technologies
+
+### Frontend
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [shadcn/ui](https://ui.shadcn.com/)  
+  Components used:  
+  `Alert`, `Badge`, `Button`, `Card`, `Input`, `Label`, `Select`, `Skeleton`, `Textarea`
+- [sonner](https://sonner.emilkowal.ski/) (Toast notifications)
+- [lucide-react](https://lucide.dev/) (Icons)
+- Context API (global state)
+- Fetch API
+
+### Backend
+
+- [Go (Golang)](https://go.dev/)
+- [Gin](https://gin-gonic.com/) (REST API)
+- [sqlx](https://jmoiron.github.io/sqlx/) (PostgreSQL connection)
+- [Swagger (swaggo)](https://github.com/swaggo/gin-swagger) (API docs)
+- [godotenv](https://github.com/joho/godotenv) (.env management)
+- [PostgreSQL](https://www.postgresql.org/) (database)
+- Unit tests (Go test framework)
+
+---
+
+## Project-Structure
+
+```
+BookLibraryProject/
+│
+├── backend/
+│   ├── db/
+│   ├── handler/
+│   ├── models/
+│   ├── routes/
+│   ├── docs/
+│   ├── main.go
+│   ├── go.mod
+│   └── .env
+│
+├── frontend/
+│   ├── components/
+│   ├── context/
+│   ├── pages/ or app/
+│   ├── utils/
+│   ├── public/
+│   ├── styles/
+│   └── package.json
+│
+└── README.md
 ```
 
-### 2. Otomatik Kurulum (Tavsiye Edilen)
+---
 
-#### Windows:
+## Installation
 
-```powershell
-.\setup.bat
-```
+### 1. Database Setup
 
-#### Linux/Mac:
+Create the table in PostgreSQL:
 
-```bash
-chmod +x setup.sh
-./setup.sh
-```
-
-### 3. Veritabanı Kurulumu
-
-- PostgreSQL kurulu olmalı.
-- `backendFile/.env` dosyasındaki bilgileri kendi veritabanına göre düzenle.
-- Örnek tablo oluşturma:
-  ```sql
-  CREATE TABLE book (
+```sql
+CREATE TABLE book (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
-    year INT NOT NULL
-  );
-  ```
+    year INT NOT NULL,
+    detail TEXT
+);
+```
 
----
-
-## Kullanım
-
-### Backend’i Başlat
+### 2. Backend (Go) Setup
 
 ```bash
-cd backendFile
+cd backend
+cp .env.example .env   # or edit .env directly
+go mod tidy
 go run main.go
 ```
 
-### Frontend’i Başlat
+- API runs at `http://localhost:8080`
+- Swagger docs: [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
+- ![image](https://github.com/user-attachments/assets/70ea31f1-969f-475c-9574-61b3f1b206fb)
+
+### 3. Frontend (Next.js) Setup
 
 ```bash
 cd frontend
+npm install
 npm run dev
 ```
 
-- Frontend: [http://localhost:3000](http://localhost:3000)
-- Backend: [http://localhost:8080](http://localhost:8080)
-- Swagger API: [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
+- App runs at `http://localhost:3000`
+- API URL is set as `http://localhost:8080` in `.env.local` or directly in code.
 
 ---
 
-## API Endpointleri
+## Tests
 
-### Kitap CRUD
+### Backend Tests
 
-| Yöntem | Endpoint    | Açıklama            |
-| ------ | ----------- | ------------------- |
-| GET    | /books      | Tüm kitapları getir |
-| POST   | /books      | Yeni kitap ekle     |
-| GET    | /books/{id} | ID ile kitap getir  |
-| PUT    | /books/{id} | Kitap güncelle      |
-| DELETE | /books/{id} | Kitap sil           |
+```bash
+cd backend
+go test ./...
+```
 
-#### Örnek POST /books
+- Includes unit tests for CRUD endpoints and URL service.
+- Tests use the database specified in `.env`.
+
+---
+
+## API-Endpoints
+
+### Book CRUD
+
+| Method | URL           | Description       |
+| ------ | ------------- | ----------------- |
+| GET    | `/books`      | Get all books     |
+| POST   | `/books`      | Add a new book    |
+| GET    | `/books/{id}` | Get book by ID    |
+| PUT    | `/books/{id}` | Update book by ID |
+| DELETE | `/books/{id}` | Delete book by ID |
+
+#### Example: Add Book
 
 ```json
+POST /books
 {
-  "title": "Sefiller",
+  "title": "Les Misérables",
   "author": "Victor Hugo",
-  "year": 1862
+  "year": 1862,
+  "detail": "A masterpiece of French literature."
 }
 ```
 
----
-
-## URL Cleanup Servisi
-
-| Yöntem | Endpoint     | Açıklama               |
-| ------ | ------------ | ---------------------- |
-| POST   | /process-url | URL temizleme/redirect |
-
-#### Örnek İstek
+#### Example: Response
 
 ```json
+{
+  "id": 1,
+  "title": "Les Misérables",
+  "author": "Victor Hugo",
+  "year": 1862,
+  "detail": "A masterpiece of French literature."
+}
+```
+
+![image](https://github.com/user-attachments/assets/0c58033b-4deb-41fd-93aa-6f790845e004)
+![image](https://github.com/user-attachments/assets/3054410b-b966-474b-99cb-ca7c4537ee9b)
+
+### URL Cleanup & Redirection Service
+
+| Method | URL            | Description             |
+| ------ | -------------- | ----------------------- |
+| POST   | `/process-url` | URL cleanup/redirection |
+
+#### Example Request
+
+```json
+POST /process-url
 {
   "url": "https://BYFOOD.com/food-EXPeriences?query=abc/",
   "operation": "all"
 }
 ```
 
-#### Örnek Yanıt
+#### Example Response
 
 ```json
 {
@@ -146,61 +211,78 @@ npm run dev
 
 ---
 
-## Testler
+![image](https://github.com/user-attachments/assets/322cc2e3-3f98-42e4-a1ed-aa542318021b)
+![image](https://github.com/user-attachments/assets/2e65dba2-7420-4695-979b-d548d61fd7d6)
 
-### Backend Testleri
+## Swagger
 
-```bash
-cd backendFile
-go test ./handler
-```
-
-### Frontend Testleri
-
-> (Varsa eklediyseniz buraya ekleyin.)
+- Interactive API documentation:  
+  [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
 
 ---
 
-## Ekran Görüntüleri
+## Screenshots
 
-Aşağıda uygulamanın bazı ekran görüntüleri yer almaktadır:
+-no book and backhand view
+![image](https://github.com/user-attachments/assets/da3e87fa-6c41-4de1-af7f-bc149c4ea21f)
+![image](https://github.com/user-attachments/assets/dfb6957c-2298-4047-9cb8-4a143f9aac6a)
 
-> ![Dashboard](./screenshots/dashboard.png) > ![Kitap Ekle Modal](./screenshots/add-book-modal.png) > ![Kitap Detay](./screenshots/book-detail.png)
+-Add New Book
+![image](https://github.com/user-attachments/assets/a7b4607f-9808-4f8f-8bbd-f2d376295a51)
+![image](https://github.com/user-attachments/assets/61bf1701-a073-42c9-8318-1325740993fe)
+![image](https://github.com/user-attachments/assets/e1909c92-77c9-4427-b653-f010731fb29c)
+![image](https://github.com/user-attachments/assets/560b9413-c2f8-442b-8ed7-b01533344b5a)
+![image](https://github.com/user-attachments/assets/eab41f57-1399-4719-87bb-552550bdc72e)
+![image](https://github.com/user-attachments/assets/b5d9ef88-2085-4a8a-85a6-05dd147d9f77)
+
+-Book/[id]/page.tsx dynamically goes to the details of the book
+
+![image](https://github.com/user-attachments/assets/b43c9704-f8d1-426b-bd89-e698bec9b3a7)
+
+-Edit Book
+
+Before
+
+![image](https://github.com/user-attachments/assets/7dbe6a38-adc3-4e2c-a7f5-b3f998b9668e)
+![image](https://github.com/user-attachments/assets/4ce92bac-3b0c-4932-9530-62197b583fe2)
+
+After
+
+-delete the detail part
+
+![image](https://github.com/user-attachments/assets/fffff86f-aa85-454e-b15f-776519434bb5)
+![image](https://github.com/user-attachments/assets/e3ebb718-fcdf-43f4-85b8-00c56d53f498)
+
+-Delete Book
+
+Before
+
+![image](https://github.com/user-attachments/assets/f650089d-62ba-40ee-8875-00b09594d4be)
+![image](https://github.com/user-attachments/assets/21081e3f-2f1f-47c1-b393-bb97a011426d)
+
+After
+
+![image](https://github.com/user-attachments/assets/b09ad9c7-08ef-4f44-aa1c-143ed4455e3b)
+
+![image](https://github.com/user-attachments/assets/13f1e946-e749-43e7-be37-8722a0c0d41f)
+
+-Test results
+
+![image](https://github.com/user-attachments/assets/c166a901-2298-4972-af2b-28de5e3554d3)
 
 ---
 
-## Proje Yapısı
+## Notes
 
-```
-BookLibraryProject/
-├── backendFile/
-│   ├── handler/
-│   ├── models/
-│   ├── db/
-│   ├── docs/
-│   ├── main.go
-│   ├── go.mod
-│   ├── .env.example
-│   └── .env
-├── frontend/
-│   ├── app/
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   └── ...
-├── setup.bat
-├── setup.sh
-├── README.md
-└── screenshots/
-```
+- The frontend uses [shadcn/ui](https://ui.shadcn.com/) components:  
+  `Alert`, `Badge`, `Button`, `Card`, `Input`, `Label`, `Select`, `Skeleton`, `Textarea`
+- All error and success messages are visually displayed to the user.
+- Both frontend and backend are easy to test and develop.
+- The project can be easily dockerized and deployed to the cloud.
 
 ---
 
-## Katkı ve Lisans
+## License
 
-- Katkıda bulunmak için PR gönderebilirsiniz.
-- Lisans: MIT
-
----
-
-Herhangi bir sorunda veya katkı için iletişime geçebilirsiniz!
+Pull requests and contributions are welcome!  
+Open source under the MIT License.

@@ -27,6 +27,6 @@ func main() {
 		port = "8080"
 	}
 
-	log.Printf("🚀 Server running on port %s", port)
+	log.Printf(" Server running on port %s", port)
 	r.Run(":" + port)
 }

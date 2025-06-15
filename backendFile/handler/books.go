@@ -48,20 +48,16 @@ func CreateBook(c *gin.Context) {
 		return
 	}
 
-	query := `INSERT INTO book (title, author, year) VALUES ($1, $2, $3) RETURNING id`
-	err := db.DB.QueryRow(query, book.Title, book.Author, book.Year).Scan(&book.ID)
+	query := `INSERT INTO book (title, author, year, detail) VALUES ($1, $2, $3, $4) RETURNING id`
+	err := db.DB.QueryRow(query, book.Title, book.Author, book.Year, book.Detail).Scan(&book.ID)
 
 	if err != nil {
+		log.Printf("Kitap eklenirken hata: %v", err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Could not insert book"})
 		return
 	}
 
 	c.JSON(http.StatusCreated, book)
-	if err != nil {
-		log.Printf("Kitap eklenirken hata: %v", err) // <-- Bunu ekle!
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Could not insert book"})
-		return
-	}
 }
 
 // @Summary Get a book by ID
@@ -106,8 +102,8 @@ func UpdateBook(c *gin.Context) {
 		return
 	}
 
-	query := `UPDATE book SET title=$1, author=$2, year=$3 WHERE id=$4`
-	res, err := db.DB.Exec(query, book.Title, book.Author, book.Year, id)
+	query := `UPDATE book SET title=$1, author=$2, year=$3, detail=$4 WHERE id=$5`
+	res, err := db.DB.Exec(query, book.Title, book.Author, book.Year, book.Detail, id)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Could not update book"})
 		return

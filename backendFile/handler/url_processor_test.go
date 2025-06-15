@@ -21,17 +21,17 @@ func TestProcessURLHandler_AllOperation(t *testing.T) {
 	ProcessURLHandler(w, req)
 
 	if w.Code != http.StatusOK {
-		t.Fatalf("Beklenen status 200, gelen: %d", w.Code)
+		t.Fatalf("Expected status 200, got: %d", w.Code)
 	}
 
 	var resp URLProcessResponse
 	if err := json.NewDecoder(w.Body).Decode(&resp); err != nil {
-		t.Fatalf("Yanıt çözümlenemedi: %v", err)
+		t.Fatalf("Failed to decode response: %v", err)
 	}
 
 	expected := "https://www.byfood.com/food-experiences"
 	if resp.ProcessedURL != expected {
-		t.Errorf("Beklenen: %s, Gelen: %s", expected, resp.ProcessedURL)
+		t.Errorf("Expected: %s, Got: %s", expected, resp.ProcessedURL)
 	}
 }
 
@@ -48,17 +48,17 @@ func TestProcessURLHandler_CanonicalOperation(t *testing.T) {
 	ProcessURLHandler(w, req)
 
 	if w.Code != http.StatusOK {
-		t.Fatalf("Beklenen status 200, gelen: %d", w.Code)
+		t.Fatalf("Expected status 200, got: %d", w.Code)
 	}
 
 	var resp URLProcessResponse
 	if err := json.NewDecoder(w.Body).Decode(&resp); err != nil {
-		t.Fatalf("Yanıt çözümlenemedi: %v", err)
+		t.Fatalf("Failed to decode response: %v", err)
 	}
 
 	expected := "https://BYFOOD.com/food-EXPeriences"
 	if resp.ProcessedURL != expected {
-		t.Errorf("Beklenen: %s, Gelen: %s", expected, resp.ProcessedURL)
+		t.Errorf("Expected: %s, Got: %s", expected, resp.ProcessedURL)
 	}
 }
 
@@ -70,6 +70,6 @@ func TestProcessURLHandler_InvalidBody(t *testing.T) {
 	ProcessURLHandler(w, req)
 
 	if w.Code != http.StatusBadRequest {
-		t.Errorf("Beklenen status 400, gelen: %d", w.Code)
+		t.Errorf("Expected status 400, got: %d", w.Code)
 	}
 }

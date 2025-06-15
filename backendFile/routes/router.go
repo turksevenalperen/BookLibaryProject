@@ -11,7 +11,6 @@ import (
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
 
-	// CORS middleware ekle
 	r.Use(cors.Default())
 
 	r.GET("/books", handlers.GetBooks)

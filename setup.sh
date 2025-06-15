@@ -1,20 +1,20 @@
 #!/bin/bash
 
-echo "Backend bağımlılıkları yükleniyor..."
+echo "Installing backend dependencies..."
 cd backendFile
 go mod tidy
 
-echo "Frontend bağımlılıkları yükleniyor..."
+echo "Installing frontend dependencies..."
 cd ../frontend
 npm install
 
-echo ".env dosyası oluşturuluyor..."
+echo "Creating .env file..."
 cd ../backendFile
 if [ ! -f .env ]; then
   cp .env.example .env
-  echo ".env dosyası oluşturuldu."
+  echo ".env file created."
 else
-  echo ".env zaten mevcut, atlanıyor."
+  echo ".env already exists, skipping."
 fi
 
-echo "Kurulum tamamlandı!"
+echo "Setup complete!"

@@ -1,54 +1,92 @@
-"use client";
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { fetchBooks, addBook, deleteBook as apiDeleteBook, updateBook as apiUpdateBook } from "../utils/api";
+"use client"
 
-export type Book = { id: number; title: string; author: string; year: number };
+import type React from "react"
+import { createContext, useContext, useState, useEffect } from "react"
+import { fetchBooks, addBook, deleteBook as apiDeleteBook, updateBook as apiUpdateBook } from "../utils/api"
+import { toast } from "sonner"
+
+export type Book = {
+  id: number
+  title: string
+  author: string
+  year: number
+  detail?: string
+}
 
 type BookContextType = {
-  books: Book[];
-  refresh: () => void;
-  add: (book: Omit<Book, "id">) => Promise<void>;
-  remove: (id: number) => Promise<void>;
-  edit: (id: number, book: Omit<Book, "id">) => Promise<void>;
-};
+  books: Book[]
+  loading: boolean
+  refresh: () => void
+  add: (book: Omit<Book, "id">) => Promise<void>
+  remove: (id: number) => Promise<void>
+  edit: (id: number, book: Omit<Book, "id">) => Promise<void>
+}
 
-const BookContext = createContext<BookContextType | undefined>(undefined);
+const BookContext = createContext<BookContextType | undefined>(undefined)
 
 export const BookProvider = ({ children }: { children: React.ReactNode }) => {
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<Book[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const refresh = () => {
-    fetchBooks().then(setBooks).catch(() => setBooks([]));
-  };
+  const refresh = async () => {
+    try {
+      setLoading(true)
+      const data = await fetchBooks()
+      setBooks(data)
+    } catch (error) {
+      console.error("Error fetching books:", error)
+      toast.error("An error occurred while loading books")
+      setBooks([])
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    refresh();
-  }, []);
+    refresh()
+  }, [])
 
   const add = async (book: Omit<Book, "id">) => {
-    await addBook(book);
-    refresh();
-  };
+    try {
+      await addBook(book)
+      toast.success("Book added successfully!")
+      refresh()
+    } catch (error) {
+      console.error("Error adding book:", error)
+      toast.error("An error occurred while adding the book")
+      throw error
+    }
+  }
 
   const remove = async (id: number) => {
-    await apiDeleteBook(id);
-    refresh();
-  };
+    try {
+      await apiDeleteBook(id)
+      toast.success("Book deleted successfully!")
+      refresh()
+    } catch (error) {
+      console.error("Error removing book:", error)
+      toast.error("An error occurred while deleting the book")
+      throw error
+    }
+  }
 
   const edit = async (id: number, book: Omit<Book, "id">) => {
-    await apiUpdateBook(id, book);
-    refresh();
-  };
+    try {
+      await apiUpdateBook(id, book)
+      toast.success("Book updated successfully!")
+      refresh()
+    } catch (error) {
+      console.error("Error editing book:", error)
+      toast.error("An error occurred while updating the book")
+      throw error
+    }
+  }
 
-  return (
-    <BookContext.Provider value={{ books, refresh, add, remove, edit }}>
-      {children}
-    </BookContext.Provider>
-  );
-};
+  return <BookContext.Provider value={{ books, loading, refresh, add, remove, edit }}>{children}</BookContext.Provider>
+}
 
 export function useBooks() {
-  const ctx = useContext(BookContext);
-  if (!ctx) throw new Error("useBooks must be used within BookProvider");
-  return ctx;
+  const ctx = useContext(BookContext)
+  if (!ctx) throw new Error("useBooks must be used within BookProvider")
+  return ctx
 }
