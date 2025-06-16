@@ -15,7 +15,6 @@ A modern, full-featured CRUD application for managing your personal book collect
 - [Swagger](#swagger)
 - [Screenshots](#screenshots)
 - [Notes](#notes)
-- [License](#license)
 
 ---
 
